@@ -1,0 +1,30 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ApplyPage } from '../apply/apply';
+
+/**
+ * Generated class for the ListingDetailsPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-listing-details',
+  templateUrl: 'listing-details.html',
+})
+export class ListingDetailsPage {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+openApply(){
+  this.navCtrl.push(ApplyPage);
+}
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ListingDetailsPage');
+  }
+
+}

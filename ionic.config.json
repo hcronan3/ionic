@@ -1,5 +1,8 @@
 {
   "name": "hiremaster",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "4ce9c8c2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

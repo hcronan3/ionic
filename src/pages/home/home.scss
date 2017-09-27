@@ -1,3 +1,31 @@
 page-home {
+  .item-ios.item-block .item-inner {
+    border: none;
+    background: transparent;
+  }
+
+  .input {
+    border: solid white 1px;
+  }
+
+  .text-input-ios{
+    padding: 5px;
+  }
+  .content-ios{background: #34485c; color: white;}
+
+  .item-ios{background: transparent; padding-left: 5px; color: white;}
+
+  form{ padding: 15px; border-radius: 5px;}
+  
+  .button-ios{ margin: 10px 0; }
+
+  img{ margin: 5px auto;}
+
+  .toolbar-background-ios{background: transparent;}
+
+  .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{border: none;}
+
 
 }
+
+.toolbar-background-ios{background: #34485c; }
