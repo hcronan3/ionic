@@ -19,7 +19,7 @@
 
 <ion-content padding>
 <h1 *ngIf="this.showFailMsg == true">Sorry, we couldn't find any results!</h1>
-<h3 *ngIf="this.showFailMsg == false"> Results for "{{this.paramWhat}} {{this.paramCategory}}" <span *ngIf="this.paramWhere"> in "{{this.paramWhere}}" </span>{{this.paramCategory}} </h3>
+<h3 *ngIf="this.showFailMsg == false"> Results for <span *ngIf="this.paramWhat"> "{{this.paramWhat}}"</span><span *ngIf="this.paramCategory"> "{{this.paramCategory}}"</span> <span *ngIf="this.paramWhere"> in "{{this.paramWhere}}" </span> </h3>
 
 
   <ion-card *ngFor="let item of jobs" >
@@ -35,7 +35,7 @@
       <ion-grid>
       <ion-row>
       <ion-col col-4>
-      <button ion-button  small (click)="openApply()" >Apply Now</button>
+      <button ion-button  small (click)="openApply({companyName: item.company_name})" >Apply Now</button>
       </ion-col>
        <ion-col col-4>
        <button ion-button small  (tap)="openModal({job: item})" >View Job</button>

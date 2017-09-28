@@ -98,8 +98,8 @@ openDetails(){
   this.navCtrl.push(ListingDetailsPage);
 }
 
-openApply(){
-  this.navCtrl.push(ApplyPage);
+openApply(charNum){
+  this.navCtrl.push(ApplyPage, charNum);
 }
 
   ionViewDidLoad() {

@@ -40,10 +40,12 @@ export class HomePage {
     
     }
     searchNearMe(){
+    console.log("init");
         this.geolocation.getCurrentPosition().then((resp) => {
+        console.log("in then");
  // resp.coords.latitude
  // resp.coords.longitude
- console.log(resp);
+    console.log(resp.coords.latitude);
 }).catch((error) => {
   console.log('Error getting location', error);
 });
@@ -51,7 +53,7 @@ export class HomePage {
 let watch = this.geolocation.watchPosition();
 watch.subscribe((data) => {
  // data can be a set of coordinates, or an error (if an error occurred).
- // data.coords.latitude
+ console.log(data.coords.latitude);
  // data.coords.longitude
 });
     }
