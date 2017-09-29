@@ -40,7 +40,7 @@ export class HomePage {
     
     }
     searchNearMe(){
-    console.log("init");
+    alert("init");
         this.geolocation.getCurrentPosition().then((resp) => {
         console.log("in then");
  // resp.coords.latitude
