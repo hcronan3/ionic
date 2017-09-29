@@ -45,7 +45,7 @@ export class HomePage {
         console.log("in then");
  // resp.coords.latitude
  // resp.coords.longitude
-    alert(resp.coords.latitude, resp.coords.longitude);
+    alert(resp.coords.latitude + resp.coords.longitude);
 }).catch((error) => {
   console.log('Error getting location', error);
 });
