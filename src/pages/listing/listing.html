@@ -22,8 +22,8 @@
 <h3 *ngIf="this.showFailMsg == false"> Results for <span *ngIf="this.paramWhat"> "{{this.paramWhat}}"</span><span *ngIf="this.paramCategory"> "{{this.paramCategory}}"</span> <span *ngIf="this.paramWhere"> in "{{this.paramWhere}}" </span> </h3>
 
 
-  <ion-card *ngFor="let item of jobs" >
-    <ion-card-header *ngIf="item.job_title">{{item.job_title}}</ion-card-header>
+  <ion-card *ngFor="let item of jobs">
+   <ion-card-header>{{item.job_title}}</ion-card-header>
     <!--<ion-card-content [innerHTML]="item.job_wysiywig_content.substring(0, 150)+'...'"></ion-card-content>-->
 <ion-card-content>
           <p>  <ion-icon name="home"> {{item.company_name}}</ion-icon> </p>
@@ -35,7 +35,7 @@
       <ion-grid>
       <ion-row>
       <ion-col col-4>
-      <button ion-button  small (click)="openApply({jobId: item.real_job_id})" >Apply Now</button>
+      <button ion-button  small (click)="openApply({job: item})" >Apply Now</button>
       </ion-col>
        <ion-col col-4>
        <button ion-button small  (tap)="openModal({job: item})" >View Job</button>
@@ -47,11 +47,16 @@
       </ion-grid>
 
     </ion-card-content>
+
+
   </ion-card>
 
 
 
+ 
  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
    <ion-infinite-scroll-content></ion-infinite-scroll-content>
  </ion-infinite-scroll>
+
+
 </ion-content>

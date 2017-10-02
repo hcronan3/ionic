@@ -17,7 +17,7 @@
 
 
 <ion-content padding text-center>
-<h2> Apply To {{this.companyName}} Job Opening </h2>
+<h2> Apply To {{job.company_name}} Job Opening </h2>
 
  <form (ngSubmit)="logForm()">
       <ion-item>
@@ -26,7 +26,7 @@
       </ion-item>
       <ion-item>
         <ion-label stacked>Last Name</ion-label>
-        <ion-input [(ngModel)]="apply.lastName" name="description"></ion-input>
+        <ion-input [(ngModel)]="apply.lastName" name="lastName"></ion-input>
       </ion-item>
        <ion-item>
         <ion-label stacked>Date of Birth</ion-label>

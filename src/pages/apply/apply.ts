@@ -14,14 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'apply.html',
 })
 export class ApplyPage {
- jobId:any;
+ job:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.jobId = this.navParams.get("jobId");
-  console.log(this.jobId);
+  this.job = this.navParams.get('job');
+  console.log(this.job.real_job_id);
+  console.log(this.job.company_mongo_id);
   }
  apply = {}
   logForm() {
-  console.log(this.jobId);
+  //console.log(this.job);
     console.log(this.apply)
   }
   ionViewDidLoad() {

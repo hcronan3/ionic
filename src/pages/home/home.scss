@@ -5,7 +5,7 @@ page-home {
   }
 
   .input {
-    border: solid white 1px;
+    border: solid white 1px; background: white; color: black;
   }
 
   .text-input-ios{
@@ -26,6 +26,7 @@ page-home {
   .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{border: none;}
 
   ion-select{background: white;}
+  .select-text{color: black;}
 }
 
 .toolbar-background-ios{background: #34485c; }

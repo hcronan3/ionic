@@ -53,19 +53,31 @@ export class ListingPage {
     console.log('Begin async operation');
     
     setTimeout(() => {
-  
-    for (let i = this.start; i <= this.start + this.end ; i++) {
+    console.log(this.end);
+    console.log(this.data.length - this.end);
+    if (this.data.length - this.end < this.end){
+     for (let i = this.start; i <= this.data.length - this.end ; i++) {
+      this.jobs.push( this.data[i] ); 
+    }
+    }
+    else{
+    console.log(this.start);
+    console.log(this.end);
+    for (let i = this.start; i <=  this.start + 10; i++) {
       this.jobs.push( this.data[i] );          
     }
+    }
     
-     this.start += this.end ;
-     this.end += this.end;
+     this.start += 10;
+     this.end += 10;
 
 
       console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
   }
+
+
 
 submit() {
 if(this.paramWhat == "" && this.paramWhere == "" && this.paramCategory == ""){
@@ -82,11 +94,19 @@ else{
  //console.log(data["_body"]);
   console.log(this.data);
  if (this.startPoint == 0){
+  if (this.data.length < this.end){
     var initialLoad = jobData.jobList; 
-     for (let i = this.startPoint; i < this.end; i++) {
+     for (let i = this.startPoint; i < this.data.length; i++) {
       this.jobs.push( initialLoad[i] );
         
-    }}
+    }} 
+    else{
+     var initialLoad = jobData.jobList; 
+     for (let i = this.startPoint; i < this.end; i++) {
+      this.jobs.push( initialLoad[i] );
+    }}}
+   
+  
 this.start += this.end -1;    
 
   }, error => {
