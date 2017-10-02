@@ -42,15 +42,68 @@
       </ion-item>
        <ion-item>
         <ion-label stacked>State</ion-label>
-        <ion-input type="text" [(ngModel)]="apply.state" name="state"></ion-input>
+          <ion-select  [(ngModel)]="apply.state" name="state">
+        <ion-option disabled value="" selected>-select an option-</ion-option>
+                  <ion-option value="AL" >Alabama</ion-option>
+                  <ion-option value="AK" >Alaska</ion-option>
+                  <ion-option value="AZ" >Arizona</ion-option>
+                  <ion-option value="AR" >Arkansas</ion-option>
+                  <ion-option value="CA" >California</ion-option>
+                  <ion-option value="CO" >Colorado</ion-option>
+                  <ion-option value="CT" >Connecticut</ion-option>
+                  <ion-option value="DE" >Delaware</ion-option>
+                  <ion-option value="DC" >District Of Columbia</ion-option>
+                  <ion-option value="FL" >Florida</ion-option>
+                  <ion-option value="GA" >Georgia</ion-option>
+                  <ion-option value="HI" >Hawaii</ion-option>
+                  <ion-option value="ID" >Idaho</ion-option>
+                  <ion-option value="IL" >Illinois</ion-option>
+                  <ion-option value="IN" >Indiana</ion-option>
+                  <ion-option value="IA" >Iowa</ion-option>
+                  <ion-option value="KS" >Kansas</ion-option>
+                  <ion-option value="KY" >Kentucky</ion-option>
+                  <ion-option value="LA" >Louisiana</ion-option>
+                  <ion-option value="ME" >Maine</ion-option>
+                  <ion-option value="MD" >Maryland</ion-option>
+                  <ion-option value="MA" >Massachusetts</ion-option>
+                  <ion-option value="MI" >Michigan</ion-option>
+                  <ion-option value="MN" >Minnesota</ion-option>
+                  <ion-option value="MS" >Mississippi</ion-option>
+                  <ion-option value="MO" >Missouri</ion-option>
+                  <ion-option value="MT" >Montana</ion-option>
+                  <ion-option value="NE" >Nebraska</ion-option>
+                  <ion-option value="NV" >Nevada</ion-option>
+                  <ion-option value="NH" >New Hampshire</ion-option>
+                  <ion-option value="NJ" >New Jersey</ion-option>
+                  <ion-option value="NM" >New Mexico</ion-option>
+                  <ion-option value="NY" >New York</ion-option>
+                  <ion-option value="NC" >North Carolina</ion-option>
+                  <ion-option value="ND" >North Dakota</ion-option>
+                  <ion-option value="OH" >Ohio</ion-option>
+                  <ion-option value="OK" >Oklahoma</ion-option>
+                  <ion-option value="OR" >Oregon</ion-option>
+                  <ion-option value="PA" >Pennsylvania</ion-option>
+                  <ion-option value="RI" >Rhode Island</ion-option>
+                  <ion-option value="SC" >South Carolina</ion-option>
+                  <ion-option value="SD" >South Dakota</ion-option>
+                  <ion-option value="TN" >Tennessee</ion-option>
+                  <ion-option value="TX" >Texas</ion-option>
+                  <ion-option value="UT" >Utah</ion-option>
+                  <ion-option value="VT" >Vermont</ion-option>
+                  <ion-option value="VA" >Virginia</ion-option>
+                  <ion-option value="WA" >Washington</ion-option>
+                  <ion-option value="WV" >West Virginia</ion-option>
+                  <ion-option value="WI" >Wisconsin</ion-option>
+                  <ion-option value="WY" >Wyoming</ion-option>
+</ion-select>
       </ion-item>
        <ion-item>
         <ion-label stacked>Zip Code</ion-label>
-        <ion-input type="text" [(ngModel)]="apply.zip" name="zip"></ion-input>
+        <ion-input type="text" [(ngModel)]="apply.zip" name="zip" maxLength="5"></ion-input>
       </ion-item>
        <ion-item>
         <ion-label stacked>Cell Phone</ion-label>
-        <ion-input type="tel" [(ngModel)]="apply.cellPhone" name="cellPhone"></ion-input>
+        <ion-input type="tel" [(ngModel)]="apply.cellPhone" name="cellPhone" maxLength="14"></ion-input>
       </ion-item>
        <ion-item>
         <ion-label stacked>Email Address</ion-label>
@@ -72,36 +125,36 @@
       <h2>Basic Driving Information</h2>
         <ion-item>
         <ion-label stacked>Current Driver Type</ion-label>
-        <ion-select  [(ngModel)]="apply.driverType" name="driverType">
-      <ion-option value="companyDriver">Company Driver</ion-option>
-      <ion-option value="ownerOperator">Owner Operator</ion-option>
-      <ion-option value="leasePurchase">Lease Purchase</ion-option>
-      <ion-option value="teamDriver">Team Driver</ion-option>
-      <ion-option value="recentGraduate">Recent Graduate</ion-option>
-      <ion-option value="stillAttendingSchool">Still Attending School</ion-option>
+        <ion-select  [(ngModel)]="apply.drivers" name="drivers">
+      <ion-option value="Company Driver">Company Driver</ion-option>
+      <ion-option value="Owner Operator">Owner Operator</ion-option>
+      <ion-option value="Lease Purchase">Lease Purchase</ion-option>
+      <ion-option value="Team Driver">Team Driver</ion-option>
+      <ion-option value="Recent Graduate">Recent Graduate</ion-option>
+      <ion-option value="Still Attending School">Still Attending School</ion-option>
  </ion-select>
       </ion-item>
           <ion-item>
         <ion-label stacked>Trailer Experience</ion-label>
-        <ion-select  [(ngModel)]="apply.experience" name="experience" multiple="true">
-      <ion-option value="tanker">Tanker</ion-option>
-      <ion-option value="autoCarrier">Auto Carrier</ion-option>
-      <ion-option value="doubles">Doubles</ion-option>
-      <ion-option value="specialized">Specialized</ion-option>
-      <ion-option value="van">Van</ion-option>
-      <ion-option value="flatbed">Flatbed</ion-option>
-      <ion-option value="reefer">Reefer</ion-option>
-      <ion-option value="dryBulk">Dry Bulk</ion-option>
-      <ion-option value="endDump">End Dump</ion-option>
-      <ion-option value="hopper">Hopper</ion-option>
+        <ion-select  [(ngModel)]="apply.trailers" name="trailers" multiple="true">
+      <ion-option value="Tanker">Tanker</ion-option>
+      <ion-option value="Auto Carrier">Auto Carrier</ion-option>
+      <ion-option value="Doubles">Doubles</ion-option>
+      <ion-option value="Specialized">Specialized</ion-option>
+      <ion-option value="Van">Van</ion-option>
+      <ion-option value="Flatbed">Flatbed</ion-option>
+      <ion-option value="Reefer">Reefer</ion-option>
+      <ion-option value="Dry Bulk">Dry Bulk</ion-option>
+      <ion-option value="End Dump">End Dump</ion-option>
+      <ion-option value="Hopper">Hopper</ion-option>
  </ion-select>
       </ion-item>
              <ion-item>
         <ion-label stacked>What endorsements do you have?</ion-label>
         <ion-select  [(ngModel)]="apply.endorsements" name="endorsements" multiple="true">
-      <ion-option value="hazmat">Hazmat</ion-option>
-      <ion-option value="tanker">Tanker</ion-option>
-      <ion-option value="doubles/trip">Doubles/Trip</ion-option>
+      <ion-option value="Hazmat">Hazmat</ion-option>
+      <ion-option value="Tanker">Tanker</ion-option>
+      <ion-option value="Doubles/Trip">Doubles/Trip</ion-option>
     
  </ion-select>
  </ion-item>
@@ -109,26 +162,26 @@
         <ion-label stacked>What routes are you willing to drive?</ion-label>
         <ion-select  [(ngModel)]="apply.routes" name="routes" multiple="true">
       <ion-option value="OTR">OTR</ion-option>
-      <ion-option value="regional">Regional</ion-option>
-      <ion-option value="dedicated">Dedicated</ion-option>
+      <ion-option value="Regional">Regional</ion-option>
+      <ion-option value="Dedicated">Dedicated</ion-option>
     
  </ion-select>
       </ion-item>
                 <ion-item>
         <ion-label stacked>How much verifiable OTR experience do you have?</ion-label>
-        <ion-select  [(ngModel)]="apply.otrExperience" name="oteExperience" >
-      <ion-option value="none">None</ion-option>
-      <ion-option value="3months">3 months</ion-option>
-      <ion-option value="6months">6 months</ion-option>
-      <ion-option value="1year">1 year</ion-option>
-      <ion-option value="2year">2 years</ion-option>
-      <ion-option value="3year">3 years</ion-option>
-      <ion-option value="4more">4 or more years</ion-option>
+        <ion-select  [(ngModel)]="apply.verifiableOTR" name="verifiableOTR" >
+      <ion-option value="0">None</ion-option>
+      <ion-option value="0.3">3 months</ion-option>
+      <ion-option value="0.6">6 months</ion-option>
+      <ion-option value="1">1 year</ion-option>
+      <ion-option value="2">2 years</ion-option>
+      <ion-option value="3">3 years</ion-option>
+      <ion-option value="4">4 or more years</ion-option>
  </ion-select>
       </ion-item>
       <ion-item>
         <ion-label stacked>What type of CDL do you have?</ion-label>
-        <ion-select  [(ngModel)]="apply.cdl" name="cdl" >
+        <ion-select  [(ngModel)]="apply.cdlType" name="cdlType" >
       <ion-option value="none">none</ion-option>
       <ion-option value="classA">Class A</ion-option>
       <ion-option value="classB">Class B</ion-option>
@@ -138,17 +191,18 @@
       <ion-item>
         <ion-label stacked>Total Truck Experience (years)</ion-label>
         <ion-select  [(ngModel)]="apply.totalExperience" name="totalExperience" >
-      <ion-option value="none">none</ion-option>
-      <ion-option value="3months">3 months</ion-option>
-      <ion-option value="6months">6 months</ion-option>
-      <ion-option value="1year">1 year</ion-option>
-      <ion-option value="2years">2 years</ion-option>
-      <ion-option value="3years">3 years</ion-option>
-      <ion-option value="4years">4 years</ion-option>
-      <ion-option value="5years">5 years</ion-option>
+      <ion-option value="0">none</ion-option>
+      <ion-option value="0.3">3 months</ion-option>
+      <ion-option value="0.6">6 months</ion-option>
+      <ion-option value="1">1 year</ion-option>
+      <ion-option value="2">2 years</ion-option>
+      <ion-option value="3">3 years</ion-option>
+      <ion-option value="4">4 years</ion-option>
+      <ion-option value="5">5 years</ion-option>
+      <ion-option value="6">6 years</ion-option><ion-option value="7">7 years</ion-option><ion-option value="8">8 years</ion-option><ion-option value="9">9 years</ion-option><ion-option value="10">10 years</ion-option><ion-option value="11">11 years</ion-option><ion-option value="12">12 years</ion-option><ion-option value="13">13 years</ion-option><ion-option value="14">14 years</ion-option><ion-option value="15">15 years</ion-option><ion-option value="16">16 years</ion-option><ion-option value="17">17 years</ion-option><ion-option value="18">18 years</ion-option><ion-option value="19">19 years</ion-option><ion-option value="20">20 years</ion-option><ion-option value="21">21 years</ion-option><ion-option value="22">22 years</ion-option><ion-option value="23">23 years</ion-option><ion-option value="24">24 years</ion-option><ion-option value="25">25 years</ion-option><ion-option value="26">26 years</ion-option><ion-option value="27">27 years</ion-option><ion-option value="28">28 years</ion-option><ion-option value="29">29 years</ion-option><ion-option value="30">30 years</ion-option><ion-option value="31">31 + years</ion-option>
  </ion-select>
       </ion-item>
-      <h2> Additional Information </h2>
+<!--       <h2> Additional Information </h2>
         <ion-item>
         <ion-label stacked>CDL Number</ion-label>
         <ion-input type="text" [(ngModel)]="apply.cdlNumber"  name="cdlNumber"></ion-input>
@@ -401,12 +455,14 @@
       <ion-option value="yes">Yes</ion-option>
       <ion-option value="no">No</ion-option>
  		</ion-select>
-      </ion-item>
+      </ion-item> -->
       <h2>Comments Section</h2>
 		<ion-item>
         <ion-label stacked>Comment Box</ion-label>
-        <ion-textarea [(ngModel)]="apply.comments" name="comments"></ion-textarea>
+        <ion-textarea [(ngModel)]="apply.addComments" name="addComments"></ion-textarea>
       </ion-item>
+
+      <p>Clicking the "Submit" button below constitutes your express written consent to be contacted via phone call, email and/or text by HireMaster.com and/or any trucking related product from Wright Media, LLC, on behalf of any third party &amp; the HireMaster network at the number(s) and/or email address you provided. You understand that these calls, text and/or email messages may be generated using an automated technology.<br /><a href="http://www.hiremaster.com/disclosure-form/" target="_blank">View Our Disclosure Form Here</a></p>
       <button ion-button type="submit" block>Apply</button>
     </form>
 
