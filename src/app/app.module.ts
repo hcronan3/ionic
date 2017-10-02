@@ -17,7 +17,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 
-// Import the AF2 Module
+/* Import the AF2 Module
 import firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -33,7 +33,7 @@ export const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
+*/
 @NgModule({
   declarations: [
     MyApp,
@@ -50,6 +50,8 @@ firebase.initializeApp(firebaseConfig);
       HttpModule,
       JsonpModule,
     IonicModule.forRoot(MyApp),
+      // AngularFireModule.initializeApp(firebaseConfig),
+    //AngularFireAuthModule,
    
   ],
   bootstrap: [IonicApp],

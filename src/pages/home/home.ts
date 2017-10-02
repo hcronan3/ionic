@@ -5,7 +5,7 @@ import { CategoriesPage } from '../categories/categories';
 import { Jsonp, Http } from '@angular/http';
 import 'rxjs/add/operator/map'; 
 import { Geolocation } from '@ionic-native/geolocation';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 
 @Component({
   selector: 'page-home',
@@ -19,7 +19,7 @@ export class HomePage {
       photoURL: any;
 
     constructor(public navCtrl: NavController, private http: Http, public jsonp: Jsonp, private geolocation: Geolocation) {
-   this.getAd();
+  //this.getAd();
     }
     pushParams() {
         this.navCtrl.push(ListingPage, { 'paramWhat': this.paramWhat, 'paramWhere': this.paramWhere, 'paramCategory': this.paramCategory });
@@ -60,8 +60,8 @@ watch.subscribe((data) => {
 });
     }
 
-getAd(){
+/*getAd(){
   this.photoURL = firebase.storage().ref().child("OTR.jpg").getDownloadURL().then(url => this.photoURL = url);
   console.log(this.photoURL);
-}
+}*/
 }
