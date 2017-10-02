@@ -14,9 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'apply.html',
 })
 export class ApplyPage {
- companyName:any;
+ jobId:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   this.jobId = this.navParams.get("jobId");
+  console.log(this.jobId);
   }
  apply = {}
   logForm() {
