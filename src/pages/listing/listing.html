@@ -23,7 +23,7 @@
 
 
   <ion-card *ngFor="let item of jobs" >
-    <ion-card-header *ngIf="item.job_title"  >{{item.job_title}}</ion-card-header>
+    <ion-card-header *ngIf="item.job_title">{{item.job_title}}</ion-card-header>
     <!--<ion-card-content [innerHTML]="item.job_wysiywig_content.substring(0, 150)+'...'"></ion-card-content>-->
 <ion-card-content>
           <p>  <ion-icon name="home"> {{item.company_name}}</ion-icon> </p>

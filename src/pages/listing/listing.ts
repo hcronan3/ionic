@@ -30,7 +30,7 @@ export class ListingPage {
     data = [];
     jobID: any;
     startPoint: number = 0;
-    sendAmount: number = 50;
+    sendAmount: number = 1000;
       private start:number=0;
       private end:number=10;
       showFailMsg: boolean = false;
@@ -48,17 +48,20 @@ export class ListingPage {
     }
 
    doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
+  
 
-    setTimeout(() => {
-     this.start += 10;
-     this.end+= 10;
+    console.log('Begin async operation');
     
-    for (let i = this.start; i < this.end; i++) {
-      this.jobs.push( this.data[i] );
-            
+    setTimeout(() => {
+  
+    for (let i = this.start; i <= this.start + this.end ; i++) {
+      this.jobs.push( this.data[i] );          
     }
-      
+    
+     this.start += this.end ;
+     this.end += this.end;
+
+
       console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
@@ -76,19 +79,22 @@ else{
   .subscribe(data => {
   var jobData = JSON.parse(data["_body"]);
   this.data = jobData.jobList;
-  console.log(data["_body"]);
- // console.log(this.data);
-     for (let i = 0; i < this.end; i++) {
-      this.jobs.push( this.data[i] );
-            
-    }
-    this.startPoint += 50;
-            console.log(this.jobs);
+ //console.log(data["_body"]);
+  console.log(this.data);
+ if (this.startPoint == 0){
+    var initialLoad = jobData.jobList; 
+     for (let i = this.startPoint; i < this.end; i++) {
+      this.jobs.push( initialLoad[i] );
+        
+    }}
+this.start += this.end -1;    
+
   }, error => {
   this.showFailMsg = true;
   console.log("Well Shit!");
   });
   }
+
   }
 
 

@@ -5,6 +5,7 @@ import { CategoriesPage } from '../categories/categories';
 import { Jsonp, Http } from '@angular/http';
 import 'rxjs/add/operator/map'; 
 import { Geolocation } from '@ionic-native/geolocation';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-home',
@@ -15,9 +16,10 @@ export class HomePage {
     paramWhere: string = '';
     paramCategory: string = '';
       public items : any = [];
+      photoURL: any;
 
     constructor(public navCtrl: NavController, private http: Http, public jsonp: Jsonp, private geolocation: Geolocation) {
-   
+   this.getAd();
     }
     pushParams() {
         this.navCtrl.push(ListingPage, { 'paramWhat': this.paramWhat, 'paramWhere': this.paramWhere, 'paramCategory': this.paramCategory });
@@ -45,7 +47,7 @@ export class HomePage {
         console.log("in then");
  // resp.coords.latitude
  // resp.coords.longitude
-    alert(resp.coords.latitude + resp.coords.longitude);
+    alert(resp.coords.latitude + " " + resp.coords.longitude);
 }).catch((error) => {
   console.log('Error getting location', error);
 });
@@ -58,4 +60,8 @@ watch.subscribe((data) => {
 });
     }
 
+getAd(){
+  this.photoURL = firebase.storage().ref().child("OTR.jpg").getDownloadURL().then(url => this.photoURL = url);
+  console.log(this.photoURL);
+}
 }

@@ -17,6 +17,23 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 
+// Import the AF2 Module
+import firebase from 'firebase';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyCFOdfUm_TAdr7LD84o8pYQ09mA7SP77Ko",
+  authDomain: "",
+  databaseURL: "https://hiremaster-5874d.firebaseio.com/",
+  storageBucket: "hiremaster-5874d.appspot.com",
+  messagingSenderId: "245785013499"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 @NgModule({
   declarations: [
     MyApp,

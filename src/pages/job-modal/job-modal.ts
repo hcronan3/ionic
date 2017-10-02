@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 /**
@@ -18,13 +18,16 @@ export class JobModalPage {
 jobID: any;
 data: any;
 job: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public viewCtrl: ViewController) {
   this.job = this.navParams.get('job');
   console.log(this.job);
   
 }
   
-
+dismiss(){
+   this.viewCtrl.dismiss();
+ 
+}
 
 
 
