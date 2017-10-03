@@ -69,7 +69,7 @@
         <splash height="2208" src="resources/ios/splash/Default~iphone.png" width="1242" />
        
         <splash height="2048" src="resources/ios/splash/Default-Landscape@2x~ipad" width="2732" />
-        <splash height="768" src="resources/ios/splash/Default-Landscape~ipad_1024x768" width="1024" />
+        <splash height="768" src="resources/ios/splash/Default-Landscape~ipad_1024x748" width="1024" />
         <splash height="2048" src="resources/ios/splash/Default-Portrait@2x~ipad_1536x2008" width="1536" />
         <splash height="2732" src="resources/ios/splash/Default-Portrait~ipad_768x1024" width="2048" />
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad_768x1024" width="768" />
