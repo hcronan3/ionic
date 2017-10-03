@@ -19,7 +19,8 @@
 
 <ion-content padding>
 <h1 *ngIf="this.showFailMsg == true">Sorry, we couldn't find any results!</h1>
-<h3 *ngIf="this.showFailMsg == false"> Results for <span *ngIf="this.paramWhat"> "{{this.paramWhat}}"</span><span *ngIf="this.paramCategory"> "{{this.paramCategory}}"</span> <span *ngIf="this.paramWhere"> in "{{this.paramWhere}}" </span> </h3>
+<h3 *ngIf="this.showFailMsg == false">Results for <span *ngIf="this.paramWhat" > "{{this.paramWhat}}"</span><span *ngIf="this.paramCategory"> "{{this.paramCategory}}"</span> <span *ngIf="this.paramWhere"> in "{{this.paramWhere}}" </span> </h3>
+
 
 
   <ion-card *ngFor="let item of jobs">
