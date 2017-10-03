@@ -1,0 +1,471 @@
+<!--
+  Generated template for the ApplyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header text-center>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img src="/assets/logo.png">
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+<h2> Apply To {{job.company_name}} Job Opening </h2>
+
+ <form (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label stacked>First Name</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.firstName"  name="firstName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Last Name</ion-label>
+        <ion-input [(ngModel)]="apply.lastName" name="lastName"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>Date of Birth</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="apply.dob" name="dob"></ion-datetime>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>Address</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.address" name="address"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>City</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.city" name="city"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>State</ion-label>
+          <ion-select  [(ngModel)]="apply.state" name="state">
+        <ion-option disabled value="" selected>-select an option-</ion-option>
+                  <ion-option value="AL" >Alabama</ion-option>
+                  <ion-option value="AK" >Alaska</ion-option>
+                  <ion-option value="AZ" >Arizona</ion-option>
+                  <ion-option value="AR" >Arkansas</ion-option>
+                  <ion-option value="CA" >California</ion-option>
+                  <ion-option value="CO" >Colorado</ion-option>
+                  <ion-option value="CT" >Connecticut</ion-option>
+                  <ion-option value="DE" >Delaware</ion-option>
+                  <ion-option value="DC" >District Of Columbia</ion-option>
+                  <ion-option value="FL" >Florida</ion-option>
+                  <ion-option value="GA" >Georgia</ion-option>
+                  <ion-option value="HI" >Hawaii</ion-option>
+                  <ion-option value="ID" >Idaho</ion-option>
+                  <ion-option value="IL" >Illinois</ion-option>
+                  <ion-option value="IN" >Indiana</ion-option>
+                  <ion-option value="IA" >Iowa</ion-option>
+                  <ion-option value="KS" >Kansas</ion-option>
+                  <ion-option value="KY" >Kentucky</ion-option>
+                  <ion-option value="LA" >Louisiana</ion-option>
+                  <ion-option value="ME" >Maine</ion-option>
+                  <ion-option value="MD" >Maryland</ion-option>
+                  <ion-option value="MA" >Massachusetts</ion-option>
+                  <ion-option value="MI" >Michigan</ion-option>
+                  <ion-option value="MN" >Minnesota</ion-option>
+                  <ion-option value="MS" >Mississippi</ion-option>
+                  <ion-option value="MO" >Missouri</ion-option>
+                  <ion-option value="MT" >Montana</ion-option>
+                  <ion-option value="NE" >Nebraska</ion-option>
+                  <ion-option value="NV" >Nevada</ion-option>
+                  <ion-option value="NH" >New Hampshire</ion-option>
+                  <ion-option value="NJ" >New Jersey</ion-option>
+                  <ion-option value="NM" >New Mexico</ion-option>
+                  <ion-option value="NY" >New York</ion-option>
+                  <ion-option value="NC" >North Carolina</ion-option>
+                  <ion-option value="ND" >North Dakota</ion-option>
+                  <ion-option value="OH" >Ohio</ion-option>
+                  <ion-option value="OK" >Oklahoma</ion-option>
+                  <ion-option value="OR" >Oregon</ion-option>
+                  <ion-option value="PA" >Pennsylvania</ion-option>
+                  <ion-option value="RI" >Rhode Island</ion-option>
+                  <ion-option value="SC" >South Carolina</ion-option>
+                  <ion-option value="SD" >South Dakota</ion-option>
+                  <ion-option value="TN" >Tennessee</ion-option>
+                  <ion-option value="TX" >Texas</ion-option>
+                  <ion-option value="UT" >Utah</ion-option>
+                  <ion-option value="VT" >Vermont</ion-option>
+                  <ion-option value="VA" >Virginia</ion-option>
+                  <ion-option value="WA" >Washington</ion-option>
+                  <ion-option value="WV" >West Virginia</ion-option>
+                  <ion-option value="WI" >Wisconsin</ion-option>
+                  <ion-option value="WY" >Wyoming</ion-option>
+</ion-select>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>Zip Code</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.zip" name="zip" maxLength="5"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>Cell Phone</ion-label>
+        <ion-input type="tel" [(ngModel)]="apply.cellPhone" name="cellPhone" maxLength="14"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>Email Address</ion-label>
+        <ion-input type="email" [(ngModel)]="apply.email" name="email"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>Confirm Email Address</ion-label>
+        <ion-input type="email" [(ngModel)]="apply.emailConfirm" name="emailConfirm"></ion-input>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>When is the best time to contact you?</ion-label>
+        <ion-select  [(ngModel)]="apply.bestTime" name="bestTime">
+      <ion-option value="morning">Morning</ion-option>
+      <ion-option value="afternoon">Afternoon</ion-option>
+      <ion-option value="night">Night</ion-option>
+    </ion-select>
+      </ion-item>
+
+      <h2>Basic Driving Information</h2>
+        <ion-item>
+        <ion-label stacked>Current Driver Type</ion-label>
+        <ion-select  [(ngModel)]="apply.drivers" name="drivers">
+      <ion-option value="Company Driver">Company Driver</ion-option>
+      <ion-option value="Owner Operator">Owner Operator</ion-option>
+      <ion-option value="Lease Purchase">Lease Purchase</ion-option>
+      <ion-option value="Team Driver">Team Driver</ion-option>
+      <ion-option value="Recent Graduate">Recent Graduate</ion-option>
+      <ion-option value="Still Attending School">Still Attending School</ion-option>
+ </ion-select>
+      </ion-item>
+          <ion-item>
+        <ion-label stacked>Trailer Experience</ion-label>
+        <ion-select  [(ngModel)]="apply.trailers" name="trailers" multiple="true">
+      <ion-option value="Tanker">Tanker</ion-option>
+      <ion-option value="Auto Carrier">Auto Carrier</ion-option>
+      <ion-option value="Doubles">Doubles</ion-option>
+      <ion-option value="Specialized">Specialized</ion-option>
+      <ion-option value="Van">Van</ion-option>
+      <ion-option value="Flatbed">Flatbed</ion-option>
+      <ion-option value="Reefer">Reefer</ion-option>
+      <ion-option value="Dry Bulk">Dry Bulk</ion-option>
+      <ion-option value="End Dump">End Dump</ion-option>
+      <ion-option value="Hopper">Hopper</ion-option>
+ </ion-select>
+      </ion-item>
+             <ion-item>
+        <ion-label stacked>What endorsements do you have?</ion-label>
+        <ion-select  [(ngModel)]="apply.endorsements" name="endorsements" multiple="true">
+      <ion-option value="Hazmat">Hazmat</ion-option>
+      <ion-option value="Tanker">Tanker</ion-option>
+      <ion-option value="Doubles/Trip">Doubles/Trip</ion-option>
+    
+ </ion-select>
+ </ion-item>
+              <ion-item>
+        <ion-label stacked>What routes are you willing to drive?</ion-label>
+        <ion-select  [(ngModel)]="apply.routes" name="routes" multiple="true">
+      <ion-option value="OTR">OTR</ion-option>
+      <ion-option value="Regional">Regional</ion-option>
+      <ion-option value="Dedicated">Dedicated</ion-option>
+    
+ </ion-select>
+      </ion-item>
+                <ion-item>
+        <ion-label stacked>How much verifiable OTR experience do you have?</ion-label>
+        <ion-select  [(ngModel)]="apply.verifiableOTR" name="verifiableOTR" >
+      <ion-option value="0">None</ion-option>
+      <ion-option value="0.3">3 months</ion-option>
+      <ion-option value="0.6">6 months</ion-option>
+      <ion-option value="1">1 year</ion-option>
+      <ion-option value="2">2 years</ion-option>
+      <ion-option value="3">3 years</ion-option>
+      <ion-option value="4">4 or more years</ion-option>
+ </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>What type of CDL do you have?</ion-label>
+        <ion-select  [(ngModel)]="apply.cdlType" name="cdlType" >
+      <ion-option value="none">none</ion-option>
+      <ion-option value="classA">Class A</ion-option>
+      <ion-option value="classB">Class B</ion-option>
+      <ion-option value="classC">Class C</ion-option>
+ </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Total Truck Experience (years)</ion-label>
+        <ion-select  [(ngModel)]="apply.totalExperience" name="totalExperience" >
+      <ion-option value="0">none</ion-option>
+      <ion-option value="0.3">3 months</ion-option>
+      <ion-option value="0.6">6 months</ion-option>
+      <ion-option value="1">1 year</ion-option>
+      <ion-option value="2">2 years</ion-option>
+      <ion-option value="3">3 years</ion-option>
+      <ion-option value="4">4 years</ion-option>
+      <ion-option value="5">5 years</ion-option>
+      <ion-option value="6">6 years</ion-option><ion-option value="7">7 years</ion-option><ion-option value="8">8 years</ion-option><ion-option value="9">9 years</ion-option><ion-option value="10">10 years</ion-option><ion-option value="11">11 years</ion-option><ion-option value="12">12 years</ion-option><ion-option value="13">13 years</ion-option><ion-option value="14">14 years</ion-option><ion-option value="15">15 years</ion-option><ion-option value="16">16 years</ion-option><ion-option value="17">17 years</ion-option><ion-option value="18">18 years</ion-option><ion-option value="19">19 years</ion-option><ion-option value="20">20 years</ion-option><ion-option value="21">21 years</ion-option><ion-option value="22">22 years</ion-option><ion-option value="23">23 years</ion-option><ion-option value="24">24 years</ion-option><ion-option value="25">25 years</ion-option><ion-option value="26">26 years</ion-option><ion-option value="27">27 years</ion-option><ion-option value="28">28 years</ion-option><ion-option value="29">29 years</ion-option><ion-option value="30">30 years</ion-option><ion-option value="31">31 + years</ion-option>
+ </ion-select>
+      </ion-item>
+<!--       <h2> Additional Information </h2>
+        <ion-item>
+        <ion-label stacked>CDL Number</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.cdlNumber"  name="cdlNumber"></ion-input>
+      </ion-item>
+          <ion-item>
+        <ion-label stacked>CDL expiration</ion-label>
+        <ion-datetime displayFormat="MM/YYYY" [(ngModel)]="apply.cdlExpire" name="cdlExpire"></ion-datetime>
+      </ion-item>
+           <ion-item>
+        <ion-label stacked>State of Issue?</ion-label>
+        <ion-select  [(ngModel)]="apply.cdlState" name="cdlState" >
+ 
+										<ion-option disabled="" value="" selected="">-select an option-</ion-option>
+										<ion-option value="AL">Alabama</ion-option>
+										<ion-option value="AK">Alaska</ion-option>
+										<ion-option value="AZ">Arizona</ion-option>
+										<ion-option value="AR">Arkansas</ion-option>
+										<ion-option value="CA">California</ion-option>
+										<ion-option value="CO">Colorado</ion-option>
+										<ion-option value="CT">Connecticut</ion-option>
+										<ion-option value="DE">Delaware</ion-option>
+										<ion-option value="DC">District Of Columbia</ion-option>
+										<ion-option value="FL">Florida</ion-option>
+										<ion-option value="GA">Georgia</ion-option>
+										<ion-option value="HI">Hawaii</ion-option>
+										<ion-option value="ID">Idaho</ion-option>
+										<ion-option value="IL">Illinois</ion-option>
+										<ion-option value="IN">Indiana</ion-option>
+										<ion-option value="IA">Iowa</ion-option>
+										<ion-option value="KS">Kansas</ion-option>
+										<ion-option value="KY">Kentucky</ion-option>
+										<ion-option value="LA">Louisiana</ion-option>
+										<ion-option value="ME">Maine</ion-option>
+										<ion-option value="MD">Maryland</ion-option>
+										<ion-option value="MA">Massachusetts</ion-option>
+										<ion-option value="MI">Michigan</ion-option>
+										<ion-option value="MN">Minnesota</ion-option>
+										<ion-option value="MS">Mississippi</ion-option>
+										<ion-option value="MO">Missouri</ion-option>
+										<ion-option value="MT">Montana</ion-option>
+										<ion-option value="NE">Nebraska</ion-option>
+										<ion-option value="NV">Nevada</ion-option>
+										<ion-option value="NH">New Hampshire</ion-option>
+										<ion-option value="NJ">New Jersey</ion-option>
+										<ion-option value="NM">New Mexico</ion-option>
+										<ion-option value="NY">New York</ion-option>
+										<ion-option value="NC">North Carolina</ion-option>
+										<ion-option value="ND">North Dakota</ion-option>
+										<ion-option value="OH">Ohio</ion-option>
+										<ion-option value="OK">Oklahoma</ion-option>
+										<ion-option value="OR">Oregon</ion-option>
+										<ion-option value="PA">Pennsylvania</ion-option>
+										<ion-option value="RI">Rhode Island</ion-option>
+										<ion-option value="SC">South Carolina</ion-option>
+										<ion-option value="SD">South Dakota</ion-option>
+										<ion-option value="TN">Tennessee</ion-option>
+										<ion-option value="TX">Texas</ion-option>
+										<ion-option value="UT">Utah</ion-option>
+										<ion-option value="VT">Vermont</ion-option>
+										<ion-option value="VA">Virginia</ion-option>
+										<ion-option value="WA">Washington</ion-option>
+										<ion-option value="WV">West Virginia</ion-option>
+										<ion-option value="WI">Wisconsin</ion-option>
+										<ion-option value="WY">Wyoming</ion-option>
+								
+ </ion-select>
+      </ion-item>
+          <ion-item>
+        <ion-label stacked>Social Security Number(optional)</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.social"  name="social"></ion-input>
+      </ion-item>
+            <ion-item>
+        <ion-label stacked>Are you currently a team driver?</ion-label>
+        <ion-select  [(ngModel)]="apply.currentlyTeamDriver" name="currentlyTeamDriver" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ </ion-select>
+      </ion-item>
+     <ion-item>
+        <ion-label stacked>If so, are you a husband/wife team?</ion-label>
+        <ion-select  [(ngModel)]="apply.currentlyHusbandWife" name="currentlyHusbandWife" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ </ion-select>
+      </ion-item>
+               <ion-item>
+        <ion-label stacked>Do you speak Spanish?</ion-label>
+        <ion-select  [(ngModel)]="apply.spanish" name="spanish" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ </ion-select>
+      </ion-item>
+               <ion-item>
+        <ion-label stacked>Do you have any military experience?</ion-label>
+        <ion-select  [(ngModel)]="apply.military" name="military" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+      <h2>Criminal History <br/> <small>(if any)</small></h2>
+          <ion-item>
+        <ion-label stacked>Have you ever been convicted of a DUI / DWI (driving under the influence)?</ion-label>
+        <ion-select  [(ngModel)]="apply.dui" name="dui" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+            <ion-item>
+        <ion-label stacked>Have you ever been denied a license, permit or privilege to operate a motor vehicle?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeDeniedLicense" name="crimeDeniedLicense" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+              <ion-item>
+        <ion-label stacked>Has any license, permit or privilege ever been suspended or revoked?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeHadSuspendedLicense" name="crimeHadSuspendedLicense" >
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+               <ion-item>
+        <ion-label stacked>Have you ever been convicted, or are any charges pending, for reckless or careless operation of a motor vehicle?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeRecklessOperation" name="crimeRecklessOperation">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+        <ion-item>
+        <ion-label stacked>Have you ever been convicted, or are any charges pending, for possession, sale or use of a narcotic drug, amphetamines, or derivatives thereof?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeDrugs" name="crimeDrugs">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+          <ion-item>
+        <ion-label stacked>Have you ever been refused any type of insurance or been denied bonding?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeRefusedInsurance" name="crimeRefusedInsurance">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+        <ion-item>
+        <ion-label stacked>Have you ever been discharged or suspended?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeDischargedSuspended" name="crimeDischargedSuspended">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Have you ever tested positive or refused a drug test?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimePositivDrugTest" name="crimePositivDrugTest">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+        <ion-item>
+        <ion-label stacked>Have you had any moving violations in the past 5 years?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeMovingViolationsFiveYears" name="crimeMovingViolationsFiveYears">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+          <ion-item>
+        <ion-label stacked>Have you had any traffic accidents in the past 5 years?</ion-label>
+        <ion-select  [(ngModel)]="apply.crimeTrafficAccidentsFiveYears" name="crimeTrafficAccidentsFiveYears">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item>
+      <h2>Work History <br/> <small>(most recent)</small></h2>
+        <ion-item>
+        <ion-label stacked>Employer Name</ion-label>
+        <ion-input type="text" [(ngModel)]="apply.empName"  name="empName"></ion-input>
+      </ion-item>
+        <ion-item>
+        <ion-label stacked>Employer Phone</ion-label>
+        <ion-input type="tel" [(ngModel)]="apply.empPhone"  name="empPhone"></ion-input>
+      </ion-item>
+      <ion-item>
+       <ion-label stacked>Start Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="apply.empStartDate" name="empStartDate"></ion-datetime>
+      </ion-item>
+       <ion-item>
+       <ion-label stacked>End Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="apply.empEndDate" name="empEndDate"></ion-datetime>
+      </ion-item>
+            <ion-item>
+        <ion-label stacked>State</ion-label>
+        <ion-select  [(ngModel)]="apply.empState" name="empState" >
+ 
+										<ion-option disabled="" value="" selected="">-select an option-</ion-option>
+										<ion-option value="AL">Alabama</ion-option>
+										<ion-option value="AK">Alaska</ion-option>
+										<ion-option value="AZ">Arizona</ion-option>
+										<ion-option value="AR">Arkansas</ion-option>
+										<ion-option value="CA">California</ion-option>
+										<ion-option value="CO">Colorado</ion-option>
+										<ion-option value="CT">Connecticut</ion-option>
+										<ion-option value="DE">Delaware</ion-option>
+										<ion-option value="DC">District Of Columbia</ion-option>
+										<ion-option value="FL">Florida</ion-option>
+										<ion-option value="GA">Georgia</ion-option>
+										<ion-option value="HI">Hawaii</ion-option>
+										<ion-option value="ID">Idaho</ion-option>
+										<ion-option value="IL">Illinois</ion-option>
+										<ion-option value="IN">Indiana</ion-option>
+										<ion-option value="IA">Iowa</ion-option>
+										<ion-option value="KS">Kansas</ion-option>
+										<ion-option value="KY">Kentucky</ion-option>
+										<ion-option value="LA">Louisiana</ion-option>
+										<ion-option value="ME">Maine</ion-option>
+										<ion-option value="MD">Maryland</ion-option>
+										<ion-option value="MA">Massachusetts</ion-option>
+										<ion-option value="MI">Michigan</ion-option>
+										<ion-option value="MN">Minnesota</ion-option>
+										<ion-option value="MS">Mississippi</ion-option>
+										<ion-option value="MO">Missouri</ion-option>
+										<ion-option value="MT">Montana</ion-option>
+										<ion-option value="NE">Nebraska</ion-option>
+										<ion-option value="NV">Nevada</ion-option>
+										<ion-option value="NH">New Hampshire</ion-option>
+										<ion-option value="NJ">New Jersey</ion-option>
+										<ion-option value="NM">New Mexico</ion-option>
+										<ion-option value="NY">New York</ion-option>
+										<ion-option value="NC">North Carolina</ion-option>
+										<ion-option value="ND">North Dakota</ion-option>
+										<ion-option value="OH">Ohio</ion-option>
+										<ion-option value="OK">Oklahoma</ion-option>
+										<ion-option value="OR">Oregon</ion-option>
+										<ion-option value="PA">Pennsylvania</ion-option>
+										<ion-option value="RI">Rhode Island</ion-option>
+										<ion-option value="SC">South Carolina</ion-option>
+										<ion-option value="SD">South Dakota</ion-option>
+										<ion-option value="TN">Tennessee</ion-option>
+										<ion-option value="TX">Texas</ion-option>
+										<ion-option value="UT">Utah</ion-option>
+										<ion-option value="VT">Vermont</ion-option>
+										<ion-option value="VA">Virginia</ion-option>
+										<ion-option value="WA">Washington</ion-option>
+										<ion-option value="WV">West Virginia</ion-option>
+										<ion-option value="WI">Wisconsin</ion-option>
+										<ion-option value="WY">Wyoming</ion-option>
+								
+ </ion-select>
+      </ion-item>
+       <ion-item>
+        <ion-label stacked>May we contact them?</ion-label>
+        <ion-select  [(ngModel)]="apply.empContact" name="empContact">
+      <ion-option value="yes">Yes</ion-option>
+      <ion-option value="no">No</ion-option>
+ 		</ion-select>
+      </ion-item> -->
+      <h2>Comments Section</h2>
+		<ion-item>
+        <ion-label stacked>Comment Box</ion-label>
+        <ion-textarea [(ngModel)]="apply.addComments" name="addComments"></ion-textarea>
+      </ion-item>
+
+      <p>Clicking the "Submit" button below constitutes your express written consent to be contacted via phone call, email and/or text by HireMaster.com and/or any trucking related product from Wright Media, LLC, on behalf of any third party &amp; the HireMaster network at the number(s) and/or email address you provided. You understand that these calls, text and/or email messages may be generated using an automated technology.<br /><a href="http://www.hiremaster.com/disclosure-form/" target="_blank">View Our Disclosure Form Here</a></p>
+      <button ion-button type="submit" block>Apply</button>
+    </form>
+
+
+
+</ion-content>
