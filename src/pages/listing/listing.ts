@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -34,16 +34,23 @@ export class ListingPage {
       private start:number=0;
       private end:number=10;
       showFailMsg: boolean = false;
+      noResults: boolean = false;
+      jobTel: any;
+      loading: any;
 
    
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public jsonp: Jsonp, public modalCrtl: ModalController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public jsonp: Jsonp, public modalCrtl: ModalController, public loadingCtrl: LoadingController) {
         this.paramWhat = navParams.get('paramWhat');
         this.paramWhere = navParams.get('paramWhere');
         this.paramCategory = navParams.get('paramCategory');
-
+            this.loading = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading...'
+              });
+ this.loading.present();
         this.submit();
-    
+        
 
     }
 
@@ -82,6 +89,7 @@ export class ListingPage {
 submit() {
 if(this.paramWhat == "" && this.paramWhere == "" && this.paramCategory == ""){
  this.showFailMsg = true; 
+ this.loading.dismiss(); 
 }
 else{
   var link = 'http://www.hiremaster.com/custScripts/ionicApp/api.php';
@@ -89,10 +97,22 @@ else{
   
   this.http.post(link, myData)
   .subscribe(data => {
+  console.log(myData);
   var jobData = JSON.parse(data["_body"]);
   this.data = jobData.jobList;
  //console.log(data["_body"]);
   console.log(this.data);
+  for (let i =0; i < this.data.length; i++){
+    if(this.data[i].job_contact_number){
+    this.jobTel = this.data[i].job_contact_number;
+    }
+    else{
+      this.jobTel = this.data[i].company_phone;
+    }
+  }
+  if (this.data.length == 0){
+      this.noResults = true;
+  }
  if (this.startPoint == 0){
   if (this.data.length < this.end){
     var initialLoad = jobData.jobList; 
@@ -108,7 +128,7 @@ else{
    
   
 this.start += this.end -1;    
-
+    this.loading.dismiss(); 
   }, error => {
   this.showFailMsg = true;
   console.log("Well Shit!");

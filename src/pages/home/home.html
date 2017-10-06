@@ -27,7 +27,8 @@
     <p>- OR -</p>
     <ion-item>
     <ion-label color="light" stacked>Search by Category</ion-label>
-    <ion-select [(ngModel)]="paramCategory" name="select" >
+    <ion-select [(ngModel)]="paramCategory" name="select" placeholder="Choose a category" >
+      <ion-option value="">Choose a category</ion-option>
     <ion-option value="owner operators">Owner Operators</ion-option>
     <ion-option value="lease purchase">Lease Purchase</ion-option>
     <ion-option value="team drivers" >Team Drivers</ion-option>
