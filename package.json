@@ -28,7 +28,7 @@
         "@ionic/storage": "2.0.1",
         "angularfire": "^2.3.0",
         "angularfire2": "^4.0.0-rc0",
-        "cordova-android": "^6.2.2",
+        "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-compat": "^1.0.0",
         "cordova-plugin-device": "^1.1.4",
