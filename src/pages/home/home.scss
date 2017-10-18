@@ -1,5 +1,5 @@
 page-home {
-  .item-ios.item-block .item-inner {
+  .item.item-block .item-inner {
     border: none;
     background: transparent;
   }
@@ -11,17 +11,17 @@ page-home {
   .text-input-ios{
     padding: 5px;
   }
-  .content-ios{background: #34485c; color: white;}
+  .content{background: #34485c; color: white;}
 
-  .item-ios{background: transparent; padding-left: 5px; color: white;}
+  .item{background: transparent; padding-left: 5px; color: white;}
 
   form{ padding: 15px; border-radius: 5px;}
   
-  .button-ios{ margin: 10px 0; }
+  .button{ margin: 10px 0; }
 
   img{ margin: 5px auto;}
 
-  .toolbar-background-ios{background: transparent;}
+  .toolbar-background{background: transparent;}
 
   .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{border: none;}
 
@@ -29,4 +29,5 @@ page-home {
   .select-text{color: black;}
 }
 
-.toolbar-background-ios{background: #34485c; }
+.toolbar-background{background: #34485c; }
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{color: white;}

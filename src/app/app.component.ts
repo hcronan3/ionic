@@ -39,7 +39,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       setTimeout(() => {
         this.splashScreen.hide();
-      }, 100);
+      }, 50);
       
     });
   }
