@@ -1,33 +1,43 @@
 page-home {
+.content{background: url("/assets/highwaybackground_blur.jpg"); background-size: cover; background-repeat: no-repeat;}
   .item.item-block .item-inner {
     border: none;
     background: transparent;
   }
+  .item{border-bottom: solid white 1px;}
 
   .input {
-    border: solid white 1px; background: white; color: black;
+     background: transparent; color: white;
   }
-
+  .text-input::placeholder{color: #e0e0e0; font-size: 18px;}
+  .select{ color: #e0e0e0; text-align: center;}
+  .item-inner{padding-right: 0 !important;}
   .text-input-ios{
     padding: 5px;
   }
-  .content{background: #34485c; color: white;}
+  .content{ color: #488aff;}
 
   .item{background: transparent; padding-left: 5px; color: white;}
 
   form{ padding: 15px; border-radius: 5px;}
   
-  .button{ margin: 10px 0; }
+  .button{ margin: 10px 0; border-radius: 0; }
 
   img{ margin: 5px auto;}
 
   .toolbar-background{background: transparent;}
 
   .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{border: none;}
-
-  ion-select{background: white;}
-  .select-text{color: black;}
+  .item-button{
+  height: 35px !important;
+  }
+  .button-inner{font-size: 20px;}
+  ion-select{background: transparent;}
+  .select-text{color: white; padding-left: 4px;}
+  .scroll-content{margin-top: 90px !important; padding-left: 40px !important; padding-right: 40px !important;}
+  .label{margin-left: 0; margin-right: 0; color: white !important; font-size: 24px;}
+  .background img { filter: blur(5px);}
 }
 
-.toolbar-background{background: #34485c; }
+.toolbar-background{background: white; border-bottom: none; }
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{color: white;}

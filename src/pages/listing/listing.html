@@ -10,7 +10,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><img padding-top padding-bottom src="assets/logo.png"></ion-title>
+    <ion-title>
+    <form (ngSubmit)="secondSubmit()">    
+    <ion-item>
+      <ion-label color="light" ><ion-icon name="search"></ion-icon></ion-label>
+      <ion-input type="search" placeholder="Job Title, Keywords"  [(ngModel)]="paramWhat" name="what" style=""></ion-input>
+
+       <button ion-button type="submit" inline><ion-icon name="search"></ion-icon></button>
+     </ion-item></form>
+     </ion-title>
 
   </ion-navbar>
 
@@ -19,7 +27,7 @@
 
 <ion-content padding margin-top>
 <h1 *ngIf="this.showFailMsg == true" >Sorry, we couldn't find any results!</h1>
-<h3 *ngIf="this.showFailMsg == false" >Results for <span *ngIf="this.paramWhat" > "{{this.paramWhat}}"</span><span *ngIf="this.paramCategory"> "{{this.paramCategory}}"</span> <span *ngIf="this.paramWhere"> in "{{this.paramWhere}}" </span> </h3>
+<h6 *ngIf="this.showFailMsg == false" >Results for <span *ngIf="this.what" > "{{this.what}}"</span><span *ngIf="this.cat"> "{{this.cat}}"</span> <span *ngIf="this.where"> in "{{this.where}}" </span> </h6>
 <!-- <h4 *ngIf="this.noResults == true">Sorry, we couldn't find any results for "{{this.paramWhat}} {{this.paramCategory}}" <span *ngIf="this.paramWhere">in "{{this.paramWhere}}"</span>!</h4>
  -->
 
@@ -28,11 +36,11 @@
    <ion-card-header>{{item.job_title}}</ion-card-header>
     <!--<ion-card-content [innerHTML]="item.job_wysiywig_content.substring(0, 150)+'...'"></ion-card-content>-->
 <ion-card-content>
-          <p>  <ion-icon name="home"> {{item.company_name}}</ion-icon> </p>
+          <p>  {{item.company_name}} </p>
     <!-- <p>  <ion-icon name="pin"></ion-icon> </p> -->
 
 
-    <p><ion-icon name="calendar"></ion-icon> Created on: {{item.real_created_at | date : 'MMM dd, yyyy'}}</p>
+    <p><ion-icon name="time"></ion-icon>  {{item.real_created_at | date : 'MMM dd, yyyy'}}</p>
 
       <ion-grid>
       <ion-row>

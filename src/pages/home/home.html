@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar text-center>
 
-  <img padding src="assets/logo.png">
+  <img padding src="assets/logo.png" style="width: 80%;">
    <!--  <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button> -->
@@ -10,23 +10,23 @@
 </ion-header>
  
 <ion-content padding text-center>
-
+<!-- <div class="background"> <img src="assets/highway-background.jpg"> -->
 
 
 
   <form (ngSubmit)="pushParams()">
     <ion-item>
-      <ion-label color="light" stacked>What?</ion-label>
-      <ion-input type="search" placeholder="Job Title, Keywords, or Company Name"  [(ngModel)]="paramWhat" name="what"></ion-input>
+      <ion-label color="light" ><ion-icon name="search"></ion-icon></ion-label>
+      <ion-input type="search" placeholder="Job Title, Keywords"  [(ngModel)]="paramWhat" name="what"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label color="light" stacked>Where?</ion-label>
+      <ion-label color="light" ><ion-icon name="pin"></ion-icon></ion-label>
       <ion-input type="search" placeholder="City, State, or Region" [(ngModel)]="paramWhere" name="where"></ion-input>
     </ion-item>
  
-    <p>- OR -</p>
-    <ion-item>
-    <ion-label color="light" stacked>Search by Category</ion-label>
+    <!-- <p padding-top>- OR -</p> -->
+    <ion-item padding-top margin-top >
+    <ion-label color="light" stacked></ion-label>
     <ion-select [(ngModel)]="paramCategory" name="select" placeholder="Choose a category" >
       <ion-option value="">Choose a category</ion-option>
     <ion-option value="owner operators">Owner Operators</ion-option>
@@ -38,8 +38,9 @@
     <ion-option value="otr" >OTR</ion-option>
     </ion-select>
     </ion-item>
-  
+    <ion-item style="border-bottom: none !important;">
    <button ion-button type="submit" block >Search</button>
+   </ion-item>
 
 </form>
 

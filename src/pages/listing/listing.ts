@@ -37,6 +37,9 @@ export class ListingPage {
       noResults: boolean = false;
       jobTel: any;
       loading: any;
+      what: any;
+      where: any;
+      cat:any;
 
    
 
@@ -54,20 +57,32 @@ export class ListingPage {
 
     }
 
+     doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+
    doInfinite(infiniteScroll) {
   
 
     console.log('Begin async operation');
     
     setTimeout(() => {
-    console.log(this.end);
+    console.log(this.end + "end");
     console.log(this.data.length - this.end);
     if (this.data.length - this.end < this.end){
      for (let i = this.start; i <= this.data.length - this.end ; i++) {
+     console.log("less than this.end");
       this.jobs.push( this.data[i] ); 
     }
     }
     else{
+    console.log("add 10");
     console.log(this.start);
     console.log(this.end);
     for (let i = this.start; i <=  this.start + 10; i++) {
@@ -87,6 +102,9 @@ export class ListingPage {
 
 
 submit() {
+this.what = this.paramWhat;
+this.where = this.paramWhere;
+this.cat = this.paramCategory;
 if(this.paramWhat == "" && this.paramWhere == "" && this.paramCategory == ""){
  this.showFailMsg = true; 
  this.loading.dismiss(); 
@@ -138,6 +156,64 @@ this.start += this.end -1;
   }
 
 
+secondSubmit() {
+this.startPoint = 0;
+this.what = this.paramWhat;
+this.where= "";
+this.cat="";
+this.paramWhere="";
+this.paramCategory="";
+this.jobs= [];
+if(this.paramWhat == "" && this.paramWhere == "" && this.paramCategory == ""){
+ this.showFailMsg = true; 
+ this.loading.dismiss(); 
+}
+else{
+  var link = 'http://www.hiremaster.com/custScripts/ionicApp/api.php';
+  var myData = JSON.stringify({what: this.paramWhat, startPoint: this.startPoint, sendAmount: this.sendAmount});
+  
+  this.http.post(link, myData)
+  .subscribe(data => {
+  console.log(myData);
+  var jobData = JSON.parse(data["_body"]);
+  this.data = jobData.jobList;
+ //console.log(data["_body"]);
+  console.log(this.data);
+  console.log(this.startPoint);
+  for (let i =0; i < this.data.length; i++){
+    if(this.data[i].job_contact_number){
+    this.jobTel = this.data[i].job_contact_number;
+    }
+    else{
+      this.jobTel = this.data[i].company_phone;
+    }
+  }
+  if (this.data.length == 0){
+      this.noResults = true;
+  }
+ if (this.startPoint == 0){
+  if (this.data.length < this.end){
+    var initialLoad = jobData.jobList; 
+     for (let i = this.startPoint; i < this.data.length; i++) {
+      this.jobs.push( initialLoad[i] );
+        
+    }} 
+    else{
+     var initialLoad = jobData.jobList; 
+     for (let i = this.startPoint; i < this.end; i++) {
+      this.jobs.push( initialLoad[i] );
+    }}}
+   
+  
+this.start += this.end -1;    
+    this.loading.dismiss(); 
+  }, error => {
+  this.showFailMsg = true;
+  console.log("Well Shit!");
+  });
+  }
+
+  }
 
 
 openDetails(){
