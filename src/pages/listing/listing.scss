@@ -1,13 +1,14 @@
 page-listing {
+.platform-android .title{padding: 0;}
 .content{color: #488aff;}
  ion-card-header{overflow: visible; white-space: normal;}
-
+.back-button{ color: #488aff;}
 .button-inner span{display: none;}
 img{margin-left: -10px; padding: 5px;}
 ion-grid{margin-left: -10px !important; margin-right: -10px !important;}
 ion-grid .button{width: 108%; }
 .card{ background: #f4f4f4; border-radius: 3px; margin: 10px; box-shadow: none;}
-.title{padding: 0 50px 1px;}
+.title-ios{padding: 0 50px 1px;}
 ion-input{display: inline-block; width: auto !important;}
 .item{color: #488aff; border: solid #488aff 1px;}
 .item .label{color: #488aff;}
