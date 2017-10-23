@@ -7,6 +7,7 @@ import { Jsonp } from '@angular/http';
 import { ListingDetailsPage } from '../listing-details/listing-details';
 import { ApplyPage } from '../apply/apply';
 import {JobModalPage} from '../job-modal/job-modal';
+import { Keyboard } from '@ionic-native/keyboard';
 
 /**
  * Generated class for the ListingPage page.
@@ -43,7 +44,7 @@ export class ListingPage {
 
    
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public jsonp: Jsonp, public modalCrtl: ModalController, public loadingCtrl: LoadingController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, public jsonp: Jsonp, public modalCrtl: ModalController, public loadingCtrl: LoadingController, private keyboard: Keyboard) {
         this.paramWhat = navParams.get('paramWhat');
         this.paramWhere = navParams.get('paramWhere');
         this.paramCategory = navParams.get('paramCategory');
@@ -149,7 +150,7 @@ else{
     }}}
    
   
-this.start = this.end ;    
+this.start = this.end;    
     this.loading.dismiss(); 
   }, error => {
   this.showFailMsg = true;
@@ -161,6 +162,11 @@ this.start = this.end ;
 
 
 secondSubmit() {
+    this.loading = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading...'
+              });
+        this.loading.present();
 this.startPoint = 0;
 this.what = this.paramWhat;
 this.where= "";
@@ -224,7 +230,8 @@ this.start = this.end;
   console.log("Well Shit!");
   });
   }
-
+this.keyboard.close();
+this.loading.dismiss();
   }
 
 
