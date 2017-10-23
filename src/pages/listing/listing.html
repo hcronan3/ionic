@@ -41,7 +41,7 @@
     <!-- <p>  <ion-icon name="pin"></ion-icon> </p> -->
 
 
-    <p><ion-icon name="time"></ion-icon>  {{item.real_created_at | date : 'MMM dd, yyyy'}}</p>
+    <p *ngIf="item.real_updated_at"><ion-icon name="time"></ion-icon>  {{item.real_updated_at | date : 'MMM dd, yyyy'}}</p>
 
       <ion-grid>
       <ion-row>
