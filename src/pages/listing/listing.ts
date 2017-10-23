@@ -51,7 +51,7 @@ export class ListingPage {
             spinner: 'dots',
             content: 'Loading...'
               });
- this.loading.present();
+        this.loading.present();
         this.submit();
         
 
@@ -73,16 +73,19 @@ export class ListingPage {
     console.log('Begin async operation');
     
     setTimeout(() => {
-    console.log(this.end + "end");
+    console.log(this.start + " start");
+    console.log(this.end + " end");
     console.log(this.data.length - this.end);
-    if (this.data.length - this.end < this.end){
-     for (let i = this.start; i <= this.data.length - this.end ; i++) {
+    var diff = this.data.length - this.end;
+    if (this.data.length - this.end < 10){
+     for (let i = this.start; i < this.start + diff ; i++) {
      console.log("less than this.end");
       this.jobs.push( this.data[i] ); 
     }
     }
     else{
     console.log("add 10");
+    console.log(this.jobs.length);
     console.log(this.start);
     console.log(this.end);
     for (let i = this.start; i <=  this.start + 10; i++) {
@@ -142,10 +145,11 @@ else{
      var initialLoad = jobData.jobList; 
      for (let i = this.startPoint; i < this.end; i++) {
       this.jobs.push( initialLoad[i] );
+
     }}}
    
   
-this.start += this.end -1;    
+this.start = this.end ;    
     this.loading.dismiss(); 
   }, error => {
   this.showFailMsg = true;
@@ -161,16 +165,18 @@ this.startPoint = 0;
 this.what = this.paramWhat;
 this.where= "";
 this.cat="";
-this.paramWhere="";
+this.paramWhere= this.paramWhat;
 this.paramCategory="";
 this.jobs= [];
+this.start = 0;
+this.end = 10;
 if(this.paramWhat == "" && this.paramWhere == "" && this.paramCategory == ""){
  this.showFailMsg = true; 
  this.loading.dismiss(); 
 }
 else{
   var link = 'http://www.hiremaster.com/custScripts/ionicApp/api.php';
-  var myData = JSON.stringify({what: this.paramWhat, startPoint: this.startPoint, sendAmount: this.sendAmount});
+  var myData = JSON.stringify({what: this.paramWhat, where: this.paramWhere, startPoint: this.startPoint, sendAmount: this.sendAmount});
   
   this.http.post(link, myData)
   .subscribe(data => {
@@ -202,10 +208,16 @@ else{
      var initialLoad = jobData.jobList; 
      for (let i = this.startPoint; i < this.end; i++) {
       this.jobs.push( initialLoad[i] );
-    }}}
+        console.log(this.jobs.length + " jobs length");
+            }}}
    
   
-this.start += this.end -1;    
+console.log(this.start + ' start');
+console.log(this.end + ' end');
+this.start = this.end; 
+
+
+
     this.loading.dismiss(); 
   }, error => {
   this.showFailMsg = true;
