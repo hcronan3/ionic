@@ -41,15 +41,15 @@
     <!-- <p>  <ion-icon name="pin"></ion-icon> </p> -->
 
 
-    <p *ngIf="item.real_updated_at"><ion-icon name="time"></ion-icon>  {{item.real_updated_at | date : 'MMM dd, yyyy'}}</p>
+    <p *ngIf="item.real_updated_at"><ion-icon name="time"></ion-icon>  {{item.real_updated_at }}</p>
 
       <ion-grid>
       <ion-row>
       <ion-col col-4>
-      <button ion-button  small (click)="openApply({job: item})" >Apply Now</button>
+      <a ion-button  small (click)="openApply({job: item})" >Apply Now</a>
       </ion-col>
        <ion-col col-4>
-       <button ion-button small  (tap)="openModal({job: item})" >View Job</button>
+       <a ion-button small  (tap)="openModal({job: item})" >View Job</a>
       </ion-col>
        <ion-col col-4 >
        <a *ngIf="item.job_contact_number" href="tel:{{item.job_contact_number}}" ion-button small>Call Now</a>
